@@ -1,0 +1,113 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNkOnKKnegiifS7eI6L9jgM",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Tocooltre305/Tocooltre305/blob/main/Anime%20Game\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "# Define characters with their health and attack power\n",
+        "characters = {\n",
+        "    \"Naruto\": {\"health\": 100, \"attack\": 15},\n",
+        "    \"Goku\": {\"health\": 120, \"attack\": 12},\n",
+        "    \"Luffy\": {\"health\": 90, \"attack\": 20}\n",
+        "}\n",
+        "\n",
+        "# Function to simulate a battle between the player and the enemy\n",
+        "def battle(player, enemy):\n",
+        "    print(f\"\\nA battle begins between {player} and {enemy}!\")\n",
+        "    player_health = characters[player][\"health\"]\n",
+        "    player_attack = characters[player][\"attack\"]\n",
+        "    enemy_health = characters[enemy][\"health\"]\n",
+        "    enemy_attack = characters[enemy][\"attack\"]\n",
+        "\n",
+        "    # Loop for the battle until one character's health reaches zero\n",
+        "    while player_health > 0 and enemy_health > 0:\n",
+        "        # Player's turn to attack\n",
+        "        damage = random.randint(1, player_attack)\n",
+        "        enemy_health -= damage\n",
+        "        print(f\"{player} attacks {enemy} and deals {damage} damage! {enemy} has {max(enemy_health, 0)} health left.\")\n",
+        "\n",
+        "        # Check if the enemy has been defeated\n",
+        "        if enemy_health <= 0:\n",
+        "            print(f\"{enemy} has been defeated! {player} wins!\")\n",
+        "            break\n",
+        "\n",
+        "        # Enemy's turn to attack\n",
+        "        damage = random.randint(1, enemy_attack)\n",
+        "        player_health -= damage\n",
+        "        print(f\"{enemy} attacks {player} and deals {damage} damage! {player} has {max(player_health, 0)} health left.\")\n",
+        "\n",
+        "        # Check if the player has been defeated\n",
+        "        if player_health <= 0:\n",
+        "            print(f\"{player} has been defeated! {enemy} wins!\")\n",
+        "            break\n",
+        "\n",
+        "# Example usage\n",
+        "battle(\"Naruto\", \"Luffy\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nWkxyjZi60pz",
+        "outputId": "fdfefb77-4a50-428b-8773-977aac677d82"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "A battle begins between Naruto and Luffy!\n",
+            "Naruto attacks Luffy and deals 2 damage! Luffy has 88 health left.\n",
+            "Luffy attacks Naruto and deals 17 damage! Naruto has 83 health left.\n",
+            "Naruto attacks Luffy and deals 8 damage! Luffy has 80 health left.\n",
+            "Luffy attacks Naruto and deals 12 damage! Naruto has 71 health left.\n",
+            "Naruto attacks Luffy and deals 7 damage! Luffy has 73 health left.\n",
+            "Luffy attacks Naruto and deals 7 damage! Naruto has 64 health left.\n",
+            "Naruto attacks Luffy and deals 2 damage! Luffy has 71 health left.\n",
+            "Luffy attacks Naruto and deals 10 damage! Naruto has 54 health left.\n",
+            "Naruto attacks Luffy and deals 13 damage! Luffy has 58 health left.\n",
+            "Luffy attacks Naruto and deals 8 damage! Naruto has 46 health left.\n",
+            "Naruto attacks Luffy and deals 6 damage! Luffy has 52 health left.\n",
+            "Luffy attacks Naruto and deals 8 damage! Naruto has 38 health left.\n",
+            "Naruto attacks Luffy and deals 6 damage! Luffy has 46 health left.\n",
+            "Luffy attacks Naruto and deals 11 damage! Naruto has 27 health left.\n",
+            "Naruto attacks Luffy and deals 3 damage! Luffy has 43 health left.\n",
+            "Luffy attacks Naruto and deals 19 damage! Naruto has 8 health left.\n",
+            "Naruto attacks Luffy and deals 1 damage! Luffy has 42 health left.\n",
+            "Luffy attacks Naruto and deals 10 damage! Naruto has 0 health left.\n",
+            "Naruto has been defeated! Luffy wins!\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
